@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-public class Appointment {
+public class Appointment{
 
     private long idClient;
     private long idMaster;

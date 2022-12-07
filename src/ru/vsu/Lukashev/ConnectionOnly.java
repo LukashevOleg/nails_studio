@@ -12,7 +12,6 @@ public class ConnectionOnly {
         String password = "111";
         String url = "jdbc:postgresql://localhost:1503/Nails";
 
-//            String query = String.format("SELECT * FROM \"%s\" WHERE client_id = %d","Clients", 2);
         System.out.println("successfully connect");
 //            Statement statement = connection.createStatement();
 //            ResultSet resultSet = statement.executeQuery(query);

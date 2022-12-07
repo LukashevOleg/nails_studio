@@ -21,7 +21,9 @@
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="151c842f-0e60-402e-b5ea-326239716459" dataset="public.Clients" active-filter-id="EMPTY_FILTER" />
-    <filter-actions connection-id="151c842f-0e60-402e-b5ea-326239716459" dataset="public.Appointments" active-filter-id="">
+    <filter-actions connection-id="151c842f-0e60-402e-b5ea-326239716459" dataset="public.Services" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="151c842f-0e60-402e-b5ea-326239716459" dataset="public.Services_in_appointment" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="151c842f-0e60-402e-b5ea-326239716459" dataset="public.Appointments" active-filter-id="EMPTY_FILTER">
       <filter id="4c5ac216-f042-41d6-8355-0e2da0b85917" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
         <condition column="appointment_id" operator="=" value="" active="true" />
       </filter>

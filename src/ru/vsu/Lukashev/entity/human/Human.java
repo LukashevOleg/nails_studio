@@ -1,18 +1,35 @@
 package ru.vsu.Lukashev.entity.human;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import ru.vsu.Lukashev.entity.Entity;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @EqualsAndHashCode
-public class Human {
+public abstract class Human implements Entity {
 
     private long ID;
     private String name;
+
+//    public Human() {
+//    }
+
+    public Human(long ID, String name) {
+        this.ID = ID;
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Human{" +
+                " name='" + name + '\'' +
+                '}';
+    }
+
+    @Override
+    public int getCountFields() {
+        return 2;
+    }
+
 
 
 }

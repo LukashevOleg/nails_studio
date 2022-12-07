@@ -1,17 +1,30 @@
 package ru.vsu.Lukashev.entity.human;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode
+
+
 public class Master extends Human {
 
     private double salary;
+
+    public Master(long ID, String name, double salary) {
+        super(ID, name);
+        this.salary = salary;
+    }
+
+    @Override
+    public int getCountFields(){
+        return super.getCountFields() + 1;
+    }
+
+    @Override
+    public String toString() {
+        return "Master{" +
+                " name='" + getName() + '\'' +
+                "salary=" + salary +
+                '}';
+    }
 
 //    public Master(long ID, String name, double salary) {
 //        super(ID, name);

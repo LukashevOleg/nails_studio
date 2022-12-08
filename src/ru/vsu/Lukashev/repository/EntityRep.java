@@ -58,13 +58,12 @@ public class EntityRep {
             Class<?>[] typeArg = constructor.getParameterTypes();
             Object[] valueArg = new Object[typeArg.length];
 
-            while (resultSet.next())
-            {
+            while (resultSet.next()) {
                 for(int i = 0, k = 1; i < typeArg.length; i++, k++){
                     valueArg[i] = resultSet.getObject(k);
                 }
                 try {
-                entity = c.getDeclaredConstructor(typeArg).newInstance(valueArg);
+                    entity = c.getDeclaredConstructor(typeArg).newInstance(valueArg);
                 }
                 catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
                     e.printStackTrace();
@@ -80,6 +79,55 @@ public class EntityRep {
 
         return entityList;
     }
+
+
+
+
+
+
+
+    public Entity getEntityByID(Class<? extends Entity> c, int ID){
+
+        Entity entity = null;
+
+        String tableName = entityInBase.get(c);
+
+        try (Statement statement = connection.createStatement()) {
+            String query = String.format("SELECT * FROM \"%s\" m WHERE m.id = %d", tableName, ID);
+            ResultSet resultSet = statement.executeQuery(query);
+            Constructor<?> constructor = c.getDeclaredConstructors()[0];
+            Class<?>[] typeArg = constructor.getParameterTypes();
+            Object[] valueArg = new Object[typeArg.length];
+
+            while (resultSet.next()) {
+                for(int i = 0, k = 1; i < typeArg.length; i++, k++){
+                    valueArg[i] = resultSet.getObject(k);
+                }
+                try {
+                    entity = c.getDeclaredConstructor(typeArg).newInstance(valueArg);
+                }
+                catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+
+            System.out.println(entity);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+        return entity;
+    }
+
+
+
+
 
     private <T> void print(List<T>  list){
         for (T t : list)

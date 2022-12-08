@@ -40,7 +40,9 @@ public class Program {
 
         EntityRep entityRep = new EntityRep();
 
-        entityRep.getList(Service.class);
+//        entityRep.getList(Service.class);
+
+        entityRep.getEntityByID(Office.class, 1);
     }
 
     public static void da(Class<? extends Entity> c) {

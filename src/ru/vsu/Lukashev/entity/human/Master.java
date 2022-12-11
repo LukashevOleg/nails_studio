@@ -1,22 +1,24 @@
 package ru.vsu.Lukashev.entity.human;
 
 import lombok.*;
+import ru.vsu.Lukashev.entity.Office;
 
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class Master extends Human {
 
-    private double salary;
 
-    public Master(long ID, String name, double salary) {
+    private final double salary;
+    private final int office_ID;
+
+    public Master(long ID, String name, double salary, int office_ID) {
         super(ID, name);
+        this.office_ID = office_ID;
         this.salary = salary;
     }
 
-    @Override
-    public int getCountFields(){
-        return super.getCountFields() + 1;
-    }
 
     @Override
     public String toString() {

@@ -25,10 +25,7 @@ public abstract class Human implements Entity {
                 '}';
     }
 
-    @Override
-    public int getCountFields() {
-        return 2;
-    }
+
 
 
 

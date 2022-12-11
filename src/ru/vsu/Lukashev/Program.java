@@ -1,18 +1,12 @@
 package ru.vsu.Lukashev;
 
-import ru.vsu.Lukashev.entity.Entity;
-import ru.vsu.Lukashev.entity.Office;
-import ru.vsu.Lukashev.entity.Service;
-import ru.vsu.Lukashev.entity.human.Client;
-import ru.vsu.Lukashev.entity.human.Human;
+import ru.vsu.Lukashev.entity.*;
 import ru.vsu.Lukashev.entity.human.Master;
 import ru.vsu.Lukashev.repository.EntityRep;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Parameter;
+import java.lang.reflect.Field;
 import java.sql.*;
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,39 +36,24 @@ public class Program {
 
 //        entityRep.getList(Service.class);
 
-        entityRep.getEntityByID(Office.class, 1);
+//        entityRep.deleteEntityByID(Client.class, 6);
+        List<Class<? extends Entity>> list = new ArrayList<>(){{
+            add(Master.class);
+            add(Office.class);
+        }};
+
+//        entityRep.getJoinResult(list);
+
+        entityRep.getListEntity(Master.class);
+
+//        entityRep.getQuery(list);
+//        entityRep.getListEntity(ServicesInAppointment.class);
+//        entityRep.training(ServicesInAppointment.class);
+//        entityRep.getEntityByID(Office.class, 3);
     }
 
     public static void da(Class<? extends Entity> c) {
-        System.out.println(c);
-        Constructor<?> constructor1 = null;
-        Object entity = null;
-//        constructor = c.getEnclosingConstructor();
 
-//        System.out.println(cAgr);
-
-
-//        Constructor<?> constructor = c.getDeclaredConstructors()[0];
-//        Class<?>[] cArg = constructor.getParameterTypes();
-//
-//        try {
-//            entity = c.getDeclaredConstructor(cArg).newInstance(l, s, i);
-//        } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-//            e.printStackTrace();
-//        }
-
-//        try {
-//
-//            constructor = c.getDeclaredConstructors();
-////            Parameter[] cAgr = constructor.getParameters();
-////            System.out.println(cAgr.length);
-////            entity = ;
-//
-//        } catch (NoSuchMethodException e) {
-//            e.printStackTrace();
-//        }
-
-        System.out.println(entity.toString() + " ociajdck");
 
     }
 }
